@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,16 +46,31 @@ public class CobotDBOpenHelper extends SQLiteOpenHelper {
         }
     }
 
+    public ArrayList<String> getDailyXAxisData() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT DATE(date) FROM COData WHERE DATE(date) <= DATE(datetime('now', 'localtime')) "
+                +"GROUP BY DATE(date) ORDER BY date LIMIT 8", null);
+
+        ArrayList<String> strList = new ArrayList<String>();
+        while( cursor.moveToNext() ) {
+            strList.add(cursor.getString(0).substring(8, 10)+"일");
+        }
+        return strList;
+    }
+
     public void insertSample() {
         this.clear();
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("DELETE FROM COData");
 
         db = this.getWritableDatabase();
+        insertSampleDataSeries(db, "2017-01-29 07:00:00");
+        insertSampleDataSeries(db, "2017-01-30 07:00:00");
         insertSampleDataSeries(db, "2017-01-31 15:31:23");
         insertSampleDataSeries(db, "2017-02-01 14:22:23");
         insertSampleDataSeries(db, "2017-02-02 15:00:00");
         insertSampleDataSeries(db, "2017-02-03 15:00:00");
+        insertSampleDataSeries(db, "2017-02-04 07:00:00");
     }
 
     public void insertRow(int ppmCO) {
@@ -84,7 +100,8 @@ public class CobotDBOpenHelper extends SQLiteOpenHelper {
 
     public List<Integer> getDailyAverage() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT AVG(co) FROM COData GROUP BY DATE(date)", null);
+        Cursor cursor = db.rawQuery("SELECT AVG(co) FROM COData WHERE DATE(date) <= DATE(datetime('now', 'localtime')) "
+                +"GROUP BY DATE(date) ORDER BY date LIMIT 8", null);
 
         String result = "";
 
@@ -95,29 +112,19 @@ public class CobotDBOpenHelper extends SQLiteOpenHelper {
         return intList;
     }
 
-    public String getDailyTime() {
+    public List<Float> getDailyTime() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT strftime('%s',  MAX(date)) - strftime('%s', MIN(date)) FROM COData GROUP BY DATE(date)", null);
+        Cursor cursor = db.rawQuery("SELECT strftime('%s',  MAX(date)) - strftime('%s', MIN(date)), MAX(date), MIN(date) FROM COData "
+                +"WHERE DATE(date) <= DATE(datetime('now', 'localtime')) GROUP BY DATE(date) ORDER BY date LIMIT 8", null);
 
-        String result = "";
-
+        List<Float> floatList = new ArrayList<Float>();
         while( cursor.moveToNext() ) {
-            int secDiff = cursor.getInt(0);
-            int minDiff = secDiff/60;
-            int hourDiff = minDiff/60;
-            minDiff %= 60;
-            secDiff %= 60;
-
-            if( hourDiff != 0 )
-                result += hourDiff+"시간 ";
-            if( minDiff != 0 )
-                result += minDiff+"분 ";
-            if( secDiff != 0 )
-                result += secDiff+"초 ";
-            if( hourDiff != 0 || minDiff != 0 || secDiff != 0 )
-                result += "작업했습니다.\n";
+            float timeDiff = cursor.getFloat(0);
+            timeDiff /= 60;
+            floatList.add(timeDiff);
+            Log.i("TimeDiff", cursor.getString(2)+" / "+cursor.getString(1)+" : " + timeDiff);
         }
 
-        return result;
+        return floatList;
     }
 }
