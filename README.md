@@ -32,6 +32,7 @@
 
 ![Result2](./assets/img/logo.png)
 [![Build Status](https://travis-ci.org/SoJungOpenHack/CO_Bot.svg?branch=master)](https://travis-ci.org/SoJungOpenHack/CO_Bot)
+![Result3](./assets/img/codacy.png)
 # <a name="cobot-korean">COBot <br/>
 ## 밀폐공간 작업자들의 질식사고 예방을 위한 일산화탄소 측정/경보 어플리케이션
 
@@ -40,7 +41,7 @@ CO Bot은 밀폐공간 내 작업자들의 질식사고 예방을 위한 일산
 ----
 ## Overview
 
-![Result3](./assets/img/OpenHackArc.png)
+![Result4](./assets/img/OpenHackArc.png)
 
 ## Developer
  * 강성필 - 성균관대학교
@@ -52,4 +53,4 @@ CO Bot은 밀폐공간 내 작업자들의 질식사고 예방을 위한 일산
 ## Designer
  * 김소진 - 성균관대학교
 
-![Result4](./assets/img/team_people.jpg)
+![Result5](./assets/img/team_people.jpg)
