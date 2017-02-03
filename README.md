@@ -32,11 +32,13 @@
 [![Result3](./assets/img/codacy.png)](https://www.codacy.com/app/Larva/CO_Bot/dashboard) <br/>
 
 # <a name="cobot-korean">COBot </a> <br/>
+
 ## 밀폐공간 작업자들의 질식사고 예방을 위한 일산화탄소 측정/경보 어플리케이션 <br/>
 
 > CO Bot은 밀폐공간 내 작업자들의 질식사고 예방을 위한 일산화탄소 측정 / 경보 어플리케이션 제공을 목표로 합니다.
 
 ----
+
 ## Overview
 
 ![Result4](./assets/img/OpenHackArc.png)
