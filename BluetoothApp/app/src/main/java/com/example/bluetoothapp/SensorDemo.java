@@ -86,6 +86,7 @@ public class SensorDemo extends Activity {
     private ImageView CallBtn;
     private int h,m,s;
     private TextView mPPMText;
+    private ImageView btnImg;
     private CircleProgressView circleProgressView;
 
     @Override
@@ -125,11 +126,20 @@ public class SensorDemo extends Activity {
         circleProgressView.setTextMode(TextMode.VALUE);
         circleProgressView.setUnitToTextScale(2.f);
 
-
-
-
-
         mthis = this;
+
+        btnImg = (ImageView)findViewById(R.id.btnImg);
+        btnImg.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mthis,Table.class);
+                startActivity(i);
+            }
+        });
+
+
+
+
 
        if(!mClient.check())
        {
@@ -435,6 +445,7 @@ public class SensorDemo extends Activity {
         }
         @Override
         public void onData(byte[] buffer, int length) {
+            Log.i("test","hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
             if(length == 0) return;
             if(mmByteBuffer.position() + length >= mmByteBuffer.capacity()) {
                 ByteBuffer newBuffer = ByteBuffer.allocate(mmByteBuffer.capacity() * 2);
@@ -442,16 +453,27 @@ public class SensorDemo extends Activity {
                 mmByteBuffer = newBuffer;
             }
             mmByteBuffer.put(buffer,0,length);
-            Log.i("test","size="+length);
-            if(length>=6) {
+            Log.i("test","size="+mmByteBuffer.toString());
+
+            if(length==4 || length==1)
+            {
+
+            }
+
+            if(length>=5) {
                 /* ?곗씠?곕? 諛쏆븘???吏묒뼱?ｋ뒗 遺遺?Buffer*/
             Log.i("test","int="+unpack32(buffer));
                 ByteBuffer wrapped = ByteBuffer.wrap(buffer,0,4);
                 ByteBuffer wrapped2 = ByteBuffer.wrap(buffer,4,1);
-                ByteBuffer wrapped3 = ByteBuffer.wrap(buffer,5,1);
                 int ppm = wrapped.getInt();
                 int temp = (int)wrapped2.get();
-                int humi = (int)wrapped3.get();
+
+                if(ppm>300)
+                {
+                    Log.i("test","입냄새~");
+                    Intent i = new Intent(mthis,Warning.class);
+                    startActivity(i);
+                }
                 circleProgressView.setValueAnimated((float)ppm);
               //  mPPMText.setText(ppm+"");
                 mTemp.setText(temp+"");
