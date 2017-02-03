@@ -7,8 +7,5 @@ jdk:
   - oraclejdk8
   - openjdk7
 
-before_install:
-  - cd java
-
 script:
   - ant test
