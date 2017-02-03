@@ -50,3 +50,5 @@ CO Bot은 밀폐공간 내 작업자들의 질식사고 예방을 위한 일산
  
 ## Designer
  * 김소진 - 성균관대학교
+
+![Result4](./assets/img/team_people.png)
