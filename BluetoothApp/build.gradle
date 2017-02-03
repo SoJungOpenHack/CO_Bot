@@ -13,8 +13,6 @@ buildscript {
     }
 }
 
-gradle check
-
 allprojects {
     repositories {
         jcenter()
