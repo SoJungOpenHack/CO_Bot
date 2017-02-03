@@ -1,6 +1,3 @@
-﻿# COBot <br/>
-## 밀폐공간 작업자들의 질식사고 예방을 위한 일산화탄소 측정/경보 어플리케이션 <br/>
-
 ----
 
 <!-- TOC depthFrom:1 depthTo:1 withLinks:1 updateOnSave:1 orderedList:0 -->
@@ -12,11 +9,11 @@
 
 ----
 
-## <a name="dashboard">Dashboard - 오픈핵
+# <a name="dashboard">Dashboard - 오픈핵
 
 > 소프트웨어 중심대학 오픈소스 해커톤 관련 내용 정리
 
-#### 해커톤 공지
+### 해커톤 공지
 
 ![Result1](./assets/img/oss_hack_poster.png)
 
@@ -32,13 +29,16 @@
 
 ![Result2](./assets/img/logo.png)
 [![Build Status](https://travis-ci.org/SoJungOpenHack/CO_Bot.svg?branch=master)](https://travis-ci.org/SoJungOpenHack/CO_Bot)
-[![Result3](./assets/img/codacy.png)](https://www.codacy.com/app/Larva/CO_Bot/dashboard)
-# <a name="cobot-korean">COBot <br/>
-## 밀폐공간 작업자들의 질식사고 예방을 위한 일산화탄소 측정/경보 어플리케이션
+[![Result3](./assets/img/codacy.png)](https://www.codacy.com/app/Larva/CO_Bot/dashboard) <br/>
 
-CO Bot은 밀폐공간 내 작업자들의 질식사고 예방을 위한 일산화탄소 측정 / 경보 어플리케이션 제공을 목표로 합니다.
+# <a name="cobot-korean">COBot </a> <br/>
 
-----
+## 밀폐공간 작업자들의 질식사고 예방을 위한 일산화탄소 측정/경보 어플리케이션 <br/>
+
+> CO Bot은 밀폐공간 내 작업자들의 질식사고 예방을 위한 일산화탄소 측정 / 경보 어플리케이션 제공을 목표로 합니다.
+
+---
+
 ## Overview
 
 ![Result4](./assets/img/OpenHackArc.png)
@@ -54,3 +54,4 @@ CO Bot은 밀폐공간 내 작업자들의 질식사고 예방을 위한 일산
  * 김소진 - 성균관대학교
 
 ![Result5](./assets/img/team_people.jpg)
+![Result6](./assets/img/caricature.png)
