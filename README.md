@@ -31,6 +31,7 @@
 ---
 
 ![Result2](./assets/img/logo.png)
+[![Build Status](https://travis-ci.org/SoJungOpenHack/CO_Bot.svg?branch=master)](https://travis-ci.org/SoJungOpenHack/CO_Bot)
 # <a name="cobot-korean">COBot <br/>
 ## 밀폐공간 작업자들의 질식사고 예방을 위한 일산화탄소 측정/경보 어플리케이션
 
