@@ -41,7 +41,18 @@
 
 ## Overview
 
-![Result4](./assets/img/OpenHackArc.png)
+![Result4](./assets/img/openhackhardware_arc.png)
+![Result5](./assets/img/openhacksoftware_arc.png)
+
+## OpenSource
+
+----
+
+* HC-06 Arduino Echo : https://github.com/ice3x2/HC-06_Arduino_Echo
+* Circle-Progress-View : https://github.com/jakob-grabner/Circle-Progress-View
+* MPAndroidChart : https://github.com/PhilJay/MPAndroidChart
+
+----
 
 ## Developer
  * 강성필 - 성균관대학교
@@ -53,5 +64,5 @@
 ## Designer
  * 김소진 - 성균관대학교
 
-![Result5](./assets/img/team_people.jpg)
-![Result6](./assets/img/caricature.png)
+![Result6](./assets/img/team_people.jpg)
+![Result7](./assets/img/caricature.png)
