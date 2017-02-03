@@ -34,6 +34,12 @@
         android:id="@+id/imageView2"
         android:layout_marginTop="70dp"
         android:layout_gravity="center" />
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:src="@mipmap/start"
+        android:id="@+id/imgChart"
+        android:layout_gravity="center" />
 
 
 </LinearLayout>

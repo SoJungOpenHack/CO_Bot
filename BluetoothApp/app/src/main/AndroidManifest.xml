@@ -23,14 +23,14 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".SensorDemo" />
         <activity android:name=".DeviceListActivity" />
         <activity android:name=".Table" />
-        <activity android:name=".Warning"></activity>
+        <activity android:name=".Warning" />
+        <activity android:name=".ChartActivity" />
     </application>
 
 </manifest>

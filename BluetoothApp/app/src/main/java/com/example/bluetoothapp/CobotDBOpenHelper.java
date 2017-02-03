@@ -84,7 +84,7 @@ public class CobotDBOpenHelper extends SQLiteOpenHelper {
 
     public List<Integer> getDailyAverage() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT AVG(co) FROM COData GROUP BY date", null);
+        Cursor cursor = db.rawQuery("SELECT AVG(co) FROM COData GROUP BY DATE(date)", null);
 
         String result = "";
 

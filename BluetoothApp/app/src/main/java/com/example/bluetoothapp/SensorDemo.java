@@ -140,10 +140,6 @@ public class SensorDemo extends Activity {
             }
         });
 
-
-
-
-
        if(!mClient.check())
        {
            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);

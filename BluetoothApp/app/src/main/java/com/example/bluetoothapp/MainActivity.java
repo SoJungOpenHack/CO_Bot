@@ -12,6 +12,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageView startBtn;
 
+    private ImageView chartBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        chartBtn = (ImageView)findViewById(R.id.imgChart);
+        chartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ChartActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
