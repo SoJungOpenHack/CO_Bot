@@ -31,6 +31,7 @@
 ---
 
 ![Result2](./assets/img/logo.png)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e742f52249e14b80a12b22019ad6a40e)](https://www.codacy.com/app/Larva/CO_Bot?utm_source=github.com&utm_medium=referral&utm_content=SoJungOpenHack/CO_Bot&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/SoJungOpenHack/CO_Bot.svg?branch=master)](https://travis-ci.org/SoJungOpenHack/CO_Bot)
 # <a name="cobot-korean">COBot <br/>
 ## 밀폐공간 작업자들의 질식사고 예방을 위한 일산화탄소 측정/경보 어플리케이션
