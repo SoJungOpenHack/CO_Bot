@@ -7,6 +7,8 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
@@ -48,6 +50,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import at.grabner.circleprogress.CircleProgressView;
+import at.grabner.circleprogress.TextMode;
+import at.grabner.circleprogress.UnitPosition;
+
 public class SensorDemo extends Activity {
     private LinkedList<BluetoothDevice> mBluetoothDevices = new LinkedList<BluetoothDevice>();
     private ArrayAdapter<String> mDeviceArrayAdapter;
@@ -80,6 +86,7 @@ public class SensorDemo extends Activity {
     private ImageView CallBtn;
     private int h,m,s;
     private TextView mPPMText;
+    private CircleProgressView circleProgressView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,10 +95,38 @@ public class SensorDemo extends Activity {
 
         mClient = BluetoothSerialClient.getInstance();
 
+
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "SDSwaggerTTF.ttf");
+
         if(mClient == null) {
             Toast.makeText(getApplicationContext(), "Cannot use the Bluetooth device.", Toast.LENGTH_SHORT).show();
             finish();
         }
+
+        circleProgressView = (CircleProgressView)findViewById(R.id.circleProgress);
+        circleProgressView.setUnit("ppm");
+        circleProgressView.setTextSize(300);
+
+        circleProgressView.setUnitSize(50);
+        circleProgressView.setUnitColor(Color.rgb(100, 100, 100));
+        circleProgressView.setUnitPosition(UnitPosition.BOTTOM);
+        circleProgressView.setUnitTextTypeface(typeface);
+        circleProgressView.setUnitVisible(true);
+
+        circleProgressView.setRimWidth(0);
+        circleProgressView.setInnerContourSize(0);
+        circleProgressView.setOuterContourSize(0);
+        circleProgressView.setBarWidth(60);
+        circleProgressView.setBarColor(Color.rgb(88, 192, 250));
+        circleProgressView.setTextColor(Color.rgb(115, 115, 115));
+        circleProgressView.setStartAngle(90);
+        circleProgressView.setMaxValue(600.f);
+        circleProgressView.setValue(0.f);
+        circleProgressView.setTextMode(TextMode.VALUE);
+        circleProgressView.setUnitToTextScale(2.f);
+
+
+
 
 
         mthis = this;
@@ -417,7 +452,8 @@ public class SensorDemo extends Activity {
                 int ppm = wrapped.getInt();
                 int temp = (int)wrapped2.get();
                 int humi = (int)wrapped3.get();
-                mPPMText.setText(ppm+"");
+                circleProgressView.setValueAnimated((float)ppm);
+              //  mPPMText.setText(ppm+"");
                 mTemp.setText(temp+"");
                // mTextView_gas.setText(test+"ppm");
 
@@ -481,7 +517,7 @@ public class SensorDemo extends Activity {
 
         FlashBtn = (ImageView)findViewById(R.id.flashBtn);
         CallBtn = (ImageView)findViewById(R.id.callBtn);
-        mPPMText = (TextView)findViewById(R.id.ppmtext);
+        //mPPMText = (TextView)findViewById(R.id.ppmtext);
 
    /*     mTextView_temperature = (TextView) findViewById(R.id.temperature_value);
         mTextView_flame = (TextView) findViewById(R.id.flame_value);
