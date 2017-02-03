@@ -30,6 +30,7 @@
 
 ---
 
+![Result2](./assets/img/logo.png)
 # <a name="cobot-korean">COBot <br/>
 ## 밀폐공간 작업자들의 질식사고 예방을 위한 일산화탄소 측정/경보 어플리케이션
 
@@ -38,7 +39,7 @@ CO Bot은 밀폐공간 내 작업자들의 질식사고 예방을 위한 일산
 ----
 ## Overview
 
-![Result2](./assets/img/openHackArc.png)
+![Result3](./assets/img/OpenHackArc.png)
 
 ## Developer
  * 강성필 - 성균관대학교
