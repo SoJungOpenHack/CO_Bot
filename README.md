@@ -42,8 +42,7 @@
 ## Overview
 
 ![Result4](./assets/img/openhackhardware_arc.png)
-![Result5](./assets/img/openhacksoftware_arc.png)
-![Result8](./assets/img/OpenHackSoftware_Arc(20_opacity).png)
+![Result5](./assets/img/OpenHackSoftware_Arc(20_opacity).png)
 
 
 ## OpenSource
