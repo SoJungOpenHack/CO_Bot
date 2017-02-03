@@ -18,7 +18,7 @@
 
 #### 해커톤 공지
 
-![Result1](./assets/img/hackathon/oss_hack_poster.png)
+![Result1](./assets/img/oss_hack_poster.png)
 
 * 주최: 한국정보과학회 오픈소스소프트웨어 연구회(http://sigoss.github.io)
 
@@ -38,7 +38,7 @@ CO Bot은 밀폐공간 내 작업자들의 질식사고 예방을 위한 일산
 ----
 ## Overview
 
-![Result2](./assets/img/OpenHackArc.png)
+![Result2](./assets/img/openHackArc.png)
 
 ## Developer
  * 강성필 - 성균관대학교
