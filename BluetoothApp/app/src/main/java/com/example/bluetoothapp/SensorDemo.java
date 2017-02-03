@@ -88,6 +88,7 @@ public class SensorDemo extends Activity {
     private TextView mPPMText;
     private ImageView btnImg;
     private CircleProgressView circleProgressView;
+    private CobotDBOpenHelper mHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +96,8 @@ public class SensorDemo extends Activity {
         setContentView(R.layout.activity_sensor);
 
         mClient = BluetoothSerialClient.getInstance();
+        mHelper = new CobotDBOpenHelper(getApplicationContext());
+        //mHelper.insertSample();
 
 
         Typeface typeface = Typeface.createFromAsset(getAssets(), "SDSwaggerTTF.ttf");
@@ -445,7 +448,7 @@ public class SensorDemo extends Activity {
         }
         @Override
         public void onData(byte[] buffer, int length) {
-            Log.i("test","hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+
             if(length == 0) return;
             if(mmByteBuffer.position() + length >= mmByteBuffer.capacity()) {
                 ByteBuffer newBuffer = ByteBuffer.allocate(mmByteBuffer.capacity() * 2);
@@ -470,6 +473,7 @@ public class SensorDemo extends Activity {
 
                 if(ppm>300)
                 {
+                    mHelper.insertRow(ppm);
                     Log.i("test","입냄새~");
                     Intent i = new Intent(mthis,Warning.class);
                     startActivity(i);
